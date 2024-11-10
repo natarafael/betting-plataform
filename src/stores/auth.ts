@@ -43,7 +43,11 @@ export const useAuthStore = create<AuthState>()(
 
       logout: () => {
         localStorage.removeItem("token");
-        set(initialState);
+        set({
+          user: null,
+          token: null,
+          isAuthenticated: false,
+        });
       },
 
       updateBalance: (newBalance: number) => {
@@ -80,6 +84,7 @@ export const useAuthStore = create<AuthState>()(
       partialize: (state) => ({
         token: state.token,
         user: state.user,
+        isAuthenticated: state.isAuthenticated, // Make sure we're persisting this too
       }),
     }
   )

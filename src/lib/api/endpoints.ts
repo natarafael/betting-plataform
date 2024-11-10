@@ -28,25 +28,30 @@ export const authApi = {
 
 // Betting endpoints
 export const bettingApi = {
-  placeBet: async (amount: number): Promise<BetResponse> => {
-    const response = await api.post<BetResponse>("/bet", { amount });
+  getBets: async (params: {
+    page: number;
+    limit: number;
+    status?: string;
+    id?: string;
+  }): Promise<PaginatedResponse<Bet>> => {
+    // Clean up params - remove undefined values
+    const cleanParams = Object.fromEntries(
+      Object.entries(params).filter(([_, value]) => value !== undefined)
+    );
+
+    console.log("Sending request to API with cleaned params:", cleanParams);
+
+    const response = await api.get<PaginatedResponse<Bet>>("/my-bets", {
+      params: cleanParams,
+    });
+
+    console.log("API Response:", response.data);
+
     return response.data;
   },
 
   cancelBet: async (betId: string): Promise<BetResponse> => {
     const response = await api.delete<BetResponse>(`/my-bet/${betId}`);
-    return response.data;
-  },
-
-  getBets: async (params: {
-    page: number;
-    limit: number;
-    status?: number;
-    id?: string;
-  }): Promise<PaginatedResponse<Bet>> => {
-    const response = await api.get<PaginatedResponse<Bet>>("/my-bets", {
-      params,
-    });
     return response.data;
   },
 };
@@ -56,15 +61,24 @@ export const walletApi = {
   getTransactions: async (params: {
     page: number;
     limit: number;
-    type?: number;
+    type?: string;
     id?: string;
   }): Promise<PaginatedResponse<Transaction>> => {
+    // Log the params being sent
+    console.log("Sending transaction request with params:", params);
+
+    const cleanParams = Object.fromEntries(
+      Object.entries(params).filter(([_, value]) => value !== undefined)
+    );
+
     const response = await api.get<PaginatedResponse<Transaction>>(
       "/my-transactions",
       {
-        params,
+        params: cleanParams,
       }
     );
+
+    console.log("Transaction response:", response.data);
     return response.data;
   },
 };

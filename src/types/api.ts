@@ -35,16 +35,22 @@ export interface RegisterResponse {
   name: string;
 }
 
-export interface BetResponse {
+export type BetResponse = {
   transactionId: string;
   currency: string;
   balance: number;
-  winAmount: number;
-}
+  winAmount?: number;
+};
 
 export interface User {
   id: string;
   name: string;
+  balance: number;
+  currency: string;
+}
+
+export interface CancelBetResponse {
+  transactionId: string;
   balance: number;
   currency: string;
 }

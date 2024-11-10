@@ -10,7 +10,7 @@ export interface Bet {
   createdAt: string;
   amount: number;
   winAmount: number;
-  status: number;
+  status: string;
 }
 
 export interface Transaction {

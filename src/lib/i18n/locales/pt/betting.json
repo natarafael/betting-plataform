@@ -1,0 +1,22 @@
+{
+  "placeBet": {
+    "title": "Faça Sua Aposta",
+    "amount": "Valor da Aposta",
+    "selectTeam": "Selecionar Time",
+    "odds": "Probabilidades",
+    "potentialWin": "Ganho Potencial",
+    "submit": "Fazer Aposta",
+    "min": "Mín",
+    "max": "Máx"
+  },
+  "betList": {
+    "title": "Minhas Apostas",
+    "description": "Meu histório de apostas",
+    "status": {
+      "pending": "Pendente",
+      "won": "Ganhou",
+      "lost": "Perdeu",
+      "cancelled": "Cancelada"
+    }
+  }
+}

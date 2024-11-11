@@ -1,0 +1,18 @@
+{
+  "balance": "Saldo",
+  "wallet": "Carteira",
+  "menu": {
+    "bets": "Minhas Apostas",
+    "transactions": "Transações",
+    "account": "Conta",
+    "settings": "Configurações",
+    "logout": "Sair"
+  },
+  "actions": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Salvar",
+    "edit": "Editar",
+    "delete": "Excluir"
+  }
+}

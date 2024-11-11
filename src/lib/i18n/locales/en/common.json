@@ -1,0 +1,18 @@
+{
+  "balance": "Balance",
+  "wallet": "Wallet",
+  "menu": {
+    "bets": "My Bets",
+    "transactions": "Transactions",
+    "account": "Account",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete"
+  }
+}

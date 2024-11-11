@@ -1,0 +1,22 @@
+{
+  "placeBet": {
+    "title": "Place Your Bet",
+    "amount": "Bet Amount",
+    "selectTeam": "Select Team",
+    "odds": "Odds",
+    "potentialWin": "Potential Win",
+    "submit": "Place Bet",
+    "min": "Min",
+    "max": "Max"
+  },
+  "betList": {
+    "title": "My Bets",
+    "description": "View your betting history",
+    "status": {
+      "pending": "Pending",
+      "won": "Won",
+      "lost": "Lost",
+      "cancelled": "Cancelled"
+    }
+  }
+}

@@ -1,50 +1,153 @@
-# React + TypeScript + Vite
+# Betting Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern betting platform built with React, TypeScript, and Tailwind CSS, featuring real-time updates, secure authentication, and responsive design.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 Secure authentication (Register/Login)
+- 💰 Wallet management
+- 🎲 Betting functionality
+- 📊 Transaction history
+- 📱 Fully responsive design
+- 🎨 Modern UI with dark/light mode
+- ⚡ Real-time updates
+- 🔄 State-of-the-art state management
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js 18.x or higher
+- npm or yarn
+- Modern web browser
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React 18
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui Components
+- Zustand (State Management)
+- React Query (Server State)
+- React Hook Form + Zod (Forms & Validation)
+- React Router (Navigation)
+- i18n
+
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/natarafael/betting-plataform.git
+cd betting-platform
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
+# or
+yarn
 ```
+
+3. Create environment file:
+
+```bash
+cp .env.example .env
+```
+
+4. Update the `.env` file with your configuration:
+
+```env
+VITE_API_URL=http://your-api-url
+```
+
+5. Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
+
+## Testing the Application
+
+1. Start the development server
+2. Register a new account:
+   ```
+   Email: test@example.com
+   Password: Test123!
+   ```
+3. Test the following features:
+   - Registration and login
+   - Viewing and placing bets
+   - Checking transaction history
+   - Wallet operations
+   - Responsive design (mobile/desktop views)
+
+## Security Considerations
+
+- All financial transactions are validated server-side
+- Sensitive data is never stored in local storage
+- Authentication tokens are handled securely
+- Form inputs are properly validated
+- API requests are protected against CSRF
+
+## Troubleshooting
+
+### Common Issues
+
+1. **API Connection Errors**
+
+   - Verify API URL in .env file
+   - Check if API server is running
+   - Confirm network connectivity
+
+2. **Build Errors**
+
+   - Clear node_modules and reinstall dependencies
+   - Verify Node.js version
+   - Check for TypeScript errors
+
+3. **Authentication Issues**
+   - Clear browser storage
+   - Check token expiration
+   - Verify credentials
+
+### Getting Help
+
+If you encounter any issues:
+
+1. Check the console for error messages
+2. Review the documentation
+3. Contact the development team
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- UI Components by [shadcn/ui](https://ui.shadcn.com)
+- Icons by [Lucide](https://lucide.dev)
+- Powered by [React](https://react.dev)
+
+## Contact
+
+For any questions or concerns, please open an issue in the repository.

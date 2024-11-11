@@ -16,9 +16,11 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "react-router-dom";
 import { loginSchema, type LoginFormData } from "@/schemas/auth";
 import { LoadingSpinner } from "@/components/shared/LoadingSpinner";
+import { useTranslation } from "react-i18next";
 
 export const LoginPage = () => {
   const { mutate: login, isPending, isError, error } = useLogin();
+  const { t } = useTranslation("auth");
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -35,7 +37,9 @@ export const LoginPage = () => {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl text-center">Login</CardTitle>
+        <CardTitle className="text-2xl text-center">
+          {t("login.title")}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -47,7 +51,7 @@ export const LoginPage = () => {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your email" {...field} />
+                    <Input placeholder={t("login.placeholder")} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -59,11 +63,11 @@ export const LoginPage = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>{t("login.password")}</FormLabel>
                   <FormControl>
                     <Input
                       type="password"
-                      placeholder="Enter your password"
+                      placeholder={t("login.placeholderPassword")}
                       {...field}
                     />
                   </FormControl>
@@ -84,7 +88,7 @@ export const LoginPage = () => {
               {isPending ? (
                 <div className="flex items-center gap-2">
                   <LoadingSpinner className="h-4 w-4" />
-                  Logging in...
+                  {t("login.signInIn")}
                 </div>
               ) : (
                 "Login"
@@ -92,9 +96,9 @@ export const LoginPage = () => {
             </Button>
 
             <div className="text-center text-sm text-muted-foreground">
-              Don't have an account?{" "}
+              {t("login.noAccount")}{" "}
               <Link to="/register" className="text-primary hover:underline">
-                Sign up
+                {t("login.signUp")}
               </Link>
             </div>
           </form>

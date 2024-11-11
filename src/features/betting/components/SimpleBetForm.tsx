@@ -12,11 +12,13 @@ import { useBalance } from "@/hooks/useBalance";
 import { Wallet } from "lucide-react";
 import { cn, formatCurrency } from "@/lib/utils";
 import { createBetSchema, type BetFormData } from "@/schemas/betting";
+import { useTranslation } from "react-i18next";
 
 const SimpleBetForm = () => {
   const { balance, formattedBalance } = useBalance();
   const queryClient = useQueryClient();
   const { mutate: placeBet, isPending } = usePlaceBet(queryClient);
+  const { t } = useTranslation("betting");
 
   const betSchema = createBetSchema(balance);
 
@@ -43,7 +45,7 @@ const SimpleBetForm = () => {
     <Card className="w-full max-w-md mx-auto shadow-lg">
       <CardHeader className="border-b bg-card">
         <CardTitle className="flex items-center justify-between">
-          <span>Place Your Bet</span>
+          <span>{t("placeBet.title")}</span>
           <div className="flex items-center gap-2 text-sm font-normal">
             <Wallet className="h-4 w-4" />
             <span>{formattedBalance}</span>
@@ -54,8 +56,12 @@ const SimpleBetForm = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
             <div className="flex justify-between items-center mb-2">
-              <Label className="text-lg font-semibold">Select Team</Label>
-              <span className="text-sm text-muted-foreground">Odds: 2.00</span>
+              <Label className="text-lg font-semibold">
+                {t("placeBet.selectTeam")}
+              </Label>
+              <span className="text-sm text-muted-foreground">
+                {t("placeBet.odds")}: 2.00
+              </span>
             </div>
 
             <RadioGroup
@@ -100,7 +106,7 @@ const SimpleBetForm = () => {
           <div className="space-y-2">
             <div className="flex justify-between items-center">
               <Label htmlFor="amount" className="text-lg font-semibold">
-                Bet Amount
+                {t("placeBet.amount")}
               </Label>
               <span className="text-sm text-muted-foreground">
                 Min: 1 | Max: {formattedBalance}
@@ -139,7 +145,9 @@ const SimpleBetForm = () => {
 
           <div className="rounded-lg bg-muted p-4 space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Potential Win</span>
+              <span className="text-muted-foreground">
+                {t("placeBet.potentialWin")}
+              </span>
               <span className="font-medium">{potentialWin}</span>
             </div>
           </div>
@@ -156,7 +164,7 @@ const SimpleBetForm = () => {
                 Placing Bet...
               </div>
             ) : (
-              "Place Bet"
+              <>{t("placeBet.submit")}</>
             )}
           </Button>
         </form>

@@ -12,11 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 // import { useSidebar } from "@/components/ui/sidebar";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { LanguageToggle } from "../shared/LanguageSwitch";
 
 export const Header = () => {
   const { formattedBalance } = useBalance();
   const { logout } = useAuth();
-  //   const { toggleSidebar } = useSidebar();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -51,6 +52,8 @@ export const Header = () => {
 
         {/* Right Section - Actions */}
         <div className="flex items-center gap-2">
+          <LanguageToggle />
+          <ThemeToggle />
           <Button variant="ghost" size="icon">
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>

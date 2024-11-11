@@ -38,10 +38,10 @@ import { formatCurrency } from "@/lib/utils";
 import { useQueryClient } from "@tanstack/react-query";
 import { BET_STATUS } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 const ITEMS_PER_PAGE = 10;
 
-// Define status options with proper mapping
 const STATUS_OPTIONS = [
   { value: "all", label: "All Bets", apiValue: undefined },
   { value: "pending", label: "Pending", apiValue: "pending" },
@@ -54,6 +54,7 @@ const MyBetsPage = () => {
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState<string>("all");
   const queryClient = useQueryClient();
+  const { t } = useTranslation("betting");
 
   const getApiStatus = (uiStatus: string) => {
     const option = STATUS_OPTIONS.find((opt) => opt.value === uiStatus);
@@ -144,8 +145,10 @@ const MyBetsPage = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">My Bets</CardTitle>
-        <CardDescription>View your betting history</CardDescription>
+        <CardTitle className="text-2xl font-bold">
+          {t("betList.title")}
+        </CardTitle>
+        <CardDescription>{t("betList.description")}</CardDescription>
 
         <div className="mt-4 flex justify-between items-center">
           <Select value={status} onValueChange={handleStatusChange}>

@@ -24,7 +24,6 @@ import {
 } from "@/components/ui/table";
 import { LoadingSpinner } from "@/components/shared/LoadingSpinner";
 import { formatCurrency } from "@/lib/utils";
-import { TRANSACTION_TYPE } from "@/lib/constants";
 import { useQueryClient } from "@tanstack/react-query";
 
 // Define status options with proper mapping to API values
@@ -49,24 +48,6 @@ const TYPE_DISPLAY_MAP = {
     className: "text-blue-500 font-medium",
   },
 } as const;
-
-const getTransactionTypeDisplay = (type: string) => {
-  // Add a console.log to check the incoming type
-  console.log("Transaction type before processing:", type);
-
-  switch (type.toLowerCase()) {
-    case "bet":
-      return <span className="text-yellow-500 font-medium">Bet</span>;
-    case "win":
-      return <span className="text-green-500 font-medium">Win</span>;
-    case "cancel":
-    case "refund":
-      return <span className="text-blue-500 font-medium">Refund</span>;
-    default:
-      console.warn(`Unknown transaction type: ${type}`);
-      return <span className="text-gray-500">Unknown</span>;
-  }
-};
 
 const ITEMS_PER_PAGE = 10;
 
